@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Bonus Air Fryer Express – 100 recettes Air Fryer sans huile</title>
-<meta name="description" content="Votre bonus offert : 100 recettes Air Fryer sans huile, saines et détaillées, avec les calories de chaque portion.">
+<title>Bonus Air Fryer Express – 200 recettes Air Fryer sans huile</title>
+<meta name="description" content="Votre bonus offert : 200 recettes Air Fryer sans huile, saines et détaillées, avec les calories de chaque portion.">
 <style>
 :root{--dark:#12263F;--gold:#E8A000;--teal:#1F7A8C;--bg:#F5F8FB;--sand:#E3EEF5}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--dark);font-family:Calibri,"Segoe UI",Arial,sans-serif;line-height:1.55}
@@ -22,14 +22,23 @@ h1 em{display:block;color:var(--gold);font-size:.8em}
 .sig{font-family:Cambria,Georgia,serif;letter-spacing:.2em;font-weight:700;color:var(--dark);margin-top:34px}
 </style></head><body><div class="wrap">
 <div class="tag">BONUS OFFERT · AIR FRYER EXPRESS</div>
-<h1>100 RECETTES AIR FRYER<em>sans huile</em><span>saines &amp; détaillées</span></h1>
+<h1>200 RECETTES AIR FRYER<em>sans huile</em><span>saines &amp; détaillées</span></h1>
 <p class="sub">Croustillant, léger et facile, avec les calories de chaque portion.</p>
-<a class="btn" href="100-Recettes-Sans-Huile.pdf" download>Télécharger mon bonus (PDF)</a>
+<a class="btn" id="dl" href="#">Télécharger mon bonus (PDF)</a><p id="st" class="note" style="min-height:1.4em"></p>
 <div class="pills"><b>0 cuillère d’huile</b><b>Calories calculées</b><b>Temps &amp; °C indiqués</b><b>5 chapitres</b></div>
 <div class="card"><h2>Ce que vous trouverez</h2><ul>
-<li>100 recettes réparties en 5 chapitres : poulet &amp; dinde, poissons &amp; fruits de mer, légumes &amp; accompagnements, plats complets &amp; végétariens, petits-déjeuners &amp; douceurs.</li>
-<li>Une grande photo, les ingrédients, la préparation pas à pas, une astuce et les calories de chaque recette.</li>
-<li>Les 8 astuces pour cuisiner sans huile et un tableau de cuisson rapide.</li></ul></div>
+<li>200 recettes réparties en 5 chapitres de 40 recettes : poulet &amp; dinde, poissons &amp; fruits de mer, légumes &amp; accompagnements, plats complets &amp; végétariens, petits-déjeuners &amp; douceurs.</li>
+<li>Une grande photo en couleurs, les ingrédients, la préparation pas à pas, une astuce et les calories de chaque recette.</li>
+<li>Un sommaire cliquable, les 8 astuces pour cuisiner sans huile et un tableau de cuisson rapide.</li></ul></div>
 <p class="note">Les valeurs nutritionnelles sont des estimations indicatives. Ce document ne remplace pas l’avis d’un professionnel de santé.</p>
 <div class="sig">MAXIME PERRIN</div>
-</div></body></html>
+</div><script>
+(function(){var N=8,SIZE=74028659,btn=document.getElementById('dl'),st=document.getElementById('st'),busy=false;
+btn.addEventListener('click',async function(e){e.preventDefault();if(busy)return;busy=true;var bufs=[];
+try{for(var i=1;i<=N;i++){st.textContent='Préparation de votre bonus… '+Math.round((i-1)/N*100)+' %';
+var r=await fetch('200-Recettes-Sans-Huile.pdf.part'+String(i).padStart(2,'0'));if(!r.ok)throw new Error('part '+i);bufs.push(await r.arrayBuffer());}
+var blob=new Blob(bufs,{type:'application/pdf'});var url=URL.createObjectURL(blob);var a=document.createElement('a');a.href=url;a.download='200-Recettes-Air-Fryer-Sans-Huile.pdf';document.body.appendChild(a);a.click();
+st.innerHTML='Terminé ! Si le téléchargement ne démarre pas, <a href="'+url+'" target="_blank" style="color:#1F7A8C;font-weight:700">ouvrez le PDF ici</a>.';}
+catch(err){st.textContent='Un problème est survenu. Rechargez la page et réessayez.';}
+busy=false;});})();
+</script></body></html>
